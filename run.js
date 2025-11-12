@@ -78,6 +78,9 @@ var dversion="1.0.0.0";
   // Função para trocar idioma
   function setLanguage(lang) {
     const t = translations[lang];
+     if (t){  
+   localStorage.setItem("lang", lang);
+         
     appTitle.textContent = t.appTitle;
     downloadText.textContent = t.downloadText;
     versionText.textContent = t.version;
@@ -88,6 +91,7 @@ var dversion="1.0.0.0";
     resourceslistText.innerHTML = t.resourceslistText;
     newslistText.innerHTML = t.NewslistText;
     newslistTtitle.textContent = t.NewslistTitle;
+     }    else {  setLanguage("pt");   }
   }
 
   // Event listeners
@@ -95,8 +99,10 @@ var dversion="1.0.0.0";
   langEsBtn.onclick = () => setLanguage('es');
   langEnBtn.onclick = () => setLanguage('en');
 
+
   // Inicializa em português
-  setLanguage('pt');
+if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"));  }  else {  setLanguage('pt');   }  
+
 
   // Modal
   const modal = document.getElementById('modal');
