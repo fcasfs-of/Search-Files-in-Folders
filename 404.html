@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Erro 404</title>
+<style>
+  /* Reset básico */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; user-select:none;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .language-selector {
+    display: flex;
+    gap: 10px;
+  }
+
+  .language-selector button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+
+  .language-selector button:hover {
+    background-color: #e0e0e0;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+
+  a:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsividade */
+  @media(max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    a {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="language-selector">
+    <button data-lang="pt" aria-label="Português">PT</button>
+    <button data-lang="es" aria-label="Español">ES</button>
+    <button data-lang="en" aria-label="English">EN</button>
+  </div>
+</header>
+
+<main>
+  <!-- Ícone SVG de erro 404 -->
+  <div class="icon" id="error-icon"></div>
+  
+  <h1 id="title"></h1>
+  <p id="message"></p>
+  <a href="http://fcasfs-of.cloud-fs.net/Search-Files-in-Folders/" id="home-link"></a>
+</main>
+
+<script>
+  // Linguagens e mensagens
+  const messages = {
+    pt: {
+      title: "Página Não Encontrada (404)",
+      message: "A página que você está procurando não existe ou foi removida.",
+      home: "Voltar à Página Inicial",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24">
+        <circle cx="32" cy="32" r="30" stroke="#ff6347" stroke-width="4" fill="#fff"/>
+        <line x1="20" y1="20" x2="44" y2="44" stroke="#ff6347" stroke-width="4"/>
+        <line x1="44" y1="20" x2="20" y2="44" stroke="#ff6347" stroke-width="4"/>
+      </svg>`
+    },
+    es: {
+      title: "Página No Encontrada (404)",
+      message: "La página que buscas no existe o fue eliminada.",
+      home: "Volver a la Página Principal",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24">
+        <circle cx="32" cy="32" r="30" stroke="#ff6347" stroke-width="4" fill="#fff"/>
+        <line x1="20" y1="20" x2="44" y2="44" stroke="#ff6347" stroke-width="4"/>
+        <line x1="44" y1="20" x2="20" y2="44" stroke="#ff6347" stroke-width="4"/>
+      </svg>`
+    },
+    en: {
+      title: "Page Not Found (404)",
+      message: "The page you're looking for doesn't exist or has been removed.",
+      home: "Return to Homepage",
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24">
+        <circle cx="32" cy="32" r="30" stroke="#ff6347" stroke-width="4" fill="#fff"/>
+        <line x1="20" y1="20" x2="44" y2="44" stroke="#ff6347" stroke-width="4"/>
+        <line x1="44" y1="20" x2="20" y2="44" stroke="#ff6347" stroke-width="4"/>
+      </svg>`
+    },
+  };
+
+  let currentLang = 'pt'; // idioma padrão
+
+  const titleEl = document.getElementById('title');
+  const messageEl = document.getElementById('message');
+  const homeLinkEl = document.getElementById('home-link');
+  const iconContainer = document.getElementById('error-icon');
+
+  // Função para trocar idioma
+  function setLanguage(lang) {
+    currentLang = lang;
+    const msg = messages[lang];
+    titleEl.innerHTML = msg.title;
+    messageEl.innerHTML = msg.message;
+    homeLinkEl.innerHTML = msg.home;
+    iconContainer.innerHTML = msg.icon;
+  }
+
+  // Eventos dos botões de idioma
+  document.querySelectorAll('.language-selector button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // Inicializa com o idioma padrão
+  setLanguage(currentLang);
+</script>
+
+</body>
+</html>
