@@ -1,2 +1,7 @@
 # Search-Files-in-Folders
-Search Files in Folders
+
+ ### Langs
+  * Português
+  * Español
+  * English
+
