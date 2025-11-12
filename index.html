@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Buscar Arquivo em Pastas</title>
+<link media="all" rel="stylesheet" href="theme.css" />
+
+<!-- Google Fonts (opcional) -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+<style>
+  /* Reset básico */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Cabeçalho -->
+  <header>
+    <h1 id="app-title">Buscar Arquivo em Pastas</h1>
+    <div class="languages">
+      <button id="lang-pt">Português</button>
+      <button id="lang-es">Español</button>
+      <button id="lang-en">English</button>
+    </div>
+  </header>
+
+  <!-- Download e Versão -->
+  <section style="text-align:center;">
+    <a href="seu_link_de_download.exe" class="download-btn" target="_blank" id="downloadBtn">
+      <!-- Ícone SVG de download -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24" style="vertical-align: middle; margin-right:8px;">
+        <path d="M5 20h14v-2H5v2zm7-14l-5 5h3v4h4v-4h3l-5-5z"/>
+      </svg>
+      <span id="downloadText"></span>
+    </a>
+    <div class="version" id="version"></div>
+  </section>
+
+  <!-- Galeria de capturas -->
+  <section>
+    <h2 id="screenshots-title"></h2>
+    <div class="gallery" id="gallery">
+      <img src="capture1.png" data-full="capture1.png" />
+      <img src="capture2.png" data-full="capture2.png" />
+      <img src="capture3.png" data-full="capture3.png" />
+    </div>
+  </section>
+
+  <!-- Recursos -->
+  <section>
+    <h2 id="resources-title"></h2>
+    <ul id="resources-list"></ul>
+  </section>
+
+  <!-- Sobre o Aplicativo -->
+  <section>
+    <h2 id="about-title"></h2>
+    <p id="about-text"></p>
+  </section>
+
+<br/><br/><br/>
+</div>
+
+<!-- Modal para exibir as capturas -->
+<div id="modal" class="modal">
+  <span class="close" id="closeModal">&times;</span>
+  <img class="modal-content" id="modal-img" src="" alt="Captura" />
+</div>
+
+<script>
+</script>
+
+<script src="run.js"></script>
+  
+</body>
+</html>
