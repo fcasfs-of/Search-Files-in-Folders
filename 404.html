@@ -169,6 +169,10 @@
   function setLanguage(lang) {
     currentLang = lang;
     const msg = messages[lang];
+    if (msg){  }  else {  currentLang = "pt";   msg = messages["pt"];  }
+
+    localStorage.setItem("lang", currentLang);
+    
     titleEl.innerHTML = msg.title;
     messageEl.innerHTML = msg.message;
     homeLinkEl.innerHTML = msg.home;
@@ -184,6 +188,8 @@
 
   // Inicializa com o idioma padrão
   setLanguage(currentLang);
+  if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"));  }
+  
 </script>
 
 </body>
