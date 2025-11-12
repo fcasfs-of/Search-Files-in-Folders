@@ -1,3 +1,21 @@
+function getUrlParameter(sParam) {  var dgetUrlParameterd="";
+    var sPageURL = decodeURIComponent(location.href);//window.location.search.substring(1));
+   if(sPageURL.split('?')){
+       var sURLVariables = sPageURL.split('?')[1].split('&');
+       if(sPageURL.split('?')[1].split('&')){
+    for (var i = 0; i < sURLVariables.length; i++) {
+        var sParameterName = sURLVariables[i].split('=');
+        if(sURLVariables[i].split('=')){
+        if (sParameterName[0] == sParam) {
+            dgetUrlParameterd=sParameterName[1];
+        }  }
+    }   }
+   }
+return dgetUrlParameterd;  }
+
+
+
+
 var dversion="1.0.0.0";
 
   // Variáveis de suporte
