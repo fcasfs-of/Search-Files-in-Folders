@@ -187,8 +187,7 @@
   });
 
   // Inicializa com o idioma padrão
-  setLanguage(currentLang);
-  if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"));  }
+  if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"));  }  else {  setLanguage(currentLang);   }
   
 </script>
 
