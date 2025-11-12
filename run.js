@@ -1,0 +1,94 @@
+var dversion="1.0.0.0";
+
+  // Variáveis de suporte
+  const translations = {
+    pt: {
+      appTitle: "Buscar Arquivo em Pastas",
+      downloadText: "Baixar o Aplicativo",
+      version: "Versão atual: "+dversion,
+      screenshotsTitle: "Capturas de Tela",
+      resourcesTitle: "Recursos",
+      aboutTitle: "Sobre o Aplicativo",
+      aboutText: "O aplicativo permite selecionar uma pasta, escolher o formato do arquivo, inserir um texto e buscar os arquivos correspondentes na pasta.",
+      resourceslistText:"<li>Escolha uma pasta</li><li>Selecione o formato do arquivo</li><li>Insira o texto desejado</li><li>Clique no botão Buscar</li>"
+    },
+    es: {
+      appTitle: "Buscar Archivo en Carpetas",
+      downloadText: "Descargar la Aplicación",
+      version: "Versión actual: "+dversion,
+      screenshotsTitle: "Capturas de Pantalla",
+      resourcesTitle: "Recursos",
+      aboutTitle: "Acerca de la Aplicación",
+      aboutText: "La aplicación permite seleccionar una carpeta, elegir el formato del archivo, ingresar un texto y buscar los archivos correspondientes en la carpeta.",
+      resourceslistText:"<li>Elige una carpeta</li><li>Selecciona el formato de archivo</li><li>Introduce el texto deseado</li><li>Haz clic en el botón Examinar</li>"
+    },
+    en: {
+      appTitle: "Search Files in Folders",
+      downloadText: "Download App",
+      version: "Current version: "+dversion,
+      screenshotsTitle: "Screenshots",
+      resourcesTitle: "Features",
+      aboutTitle: "About the App",
+      aboutText: "The app allows selecting a folder, choosing the file format, entering text, and searching files in the folder.",
+      resourceslistText:"<li>Choose a folder</li><li>Select the file format</li><li>Enter the desired text</li><li>Click the Browse button</li>"
+    }
+  };
+
+  // Elementos
+  const appTitle = document.getElementById('app-title');
+  const downloadText = document.getElementById('downloadText');
+  const versionText = document.getElementById('version');
+  const screenshotsTitle = document.getElementById('screenshots-title');
+  const resourcesTitle = document.getElementById('resources-title');
+  const aboutTitle = document.getElementById('about-title');
+  const aboutText = document.getElementById('about-text');
+  const resourceslistText = document.getElementById('resources-list');
+
+  const langPtBtn = document.getElementById('lang-pt');
+  const langEsBtn = document.getElementById('lang-es');
+  const langEnBtn = document.getElementById('lang-en');
+
+  // Função para trocar idioma
+  function setLanguage(lang) {
+    const t = translations[lang];
+    appTitle.textContent = t.appTitle;
+    downloadText.textContent = t.downloadText;
+    versionText.textContent = t.version;
+    screenshotsTitle.textContent = t.screenshotsTitle;
+    resourcesTitle.textContent = t.resourcesTitle;
+    aboutTitle.textContent = t.aboutTitle;
+    aboutText.textContent = t.aboutText;
+    resourceslistText.innerHTML = t.resourceslistText;
+  }
+
+  // Event listeners
+  langPtBtn.onclick = () => setLanguage('pt');
+  langEsBtn.onclick = () => setLanguage('es');
+  langEnBtn.onclick = () => setLanguage('en');
+
+  // Inicializa em português
+  setLanguage('pt');
+
+  // Modal
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeModal = document.getElementById('closeModal');
+
+  document.querySelectorAll('#gallery img').forEach(img => {
+    img.onclick = () => {
+      modal.style.display = 'block';
+      modalImg.src = img.dataset.full || img.src;
+      modalImg.alt = img.alt;
+    };
+  });
+
+  closeModal.onclick = () => {
+    modal.style.display = 'none';
+  };
+
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+
