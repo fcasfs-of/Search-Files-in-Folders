@@ -20,6 +20,11 @@
     flex-direction: column;
     min-height: 100vh;
   }
+  body.dark {
+     background-color: #333;
+    color: #fff;
+  }
+  
 
   header {
     padding: 20px;
@@ -188,6 +193,14 @@
 
   // Inicializa com o idioma padrão
   if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"));  }  else {  setLanguage(currentLang);   }
+
+
+if(localStorage.getItem('tema') === 'escuro') {
+   body.classList.add('dark');   
+    } else {
+   body.classList.remove('dark');      }
+}
+
   
 </script>
 
