@@ -125,3 +125,7 @@ if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"))
     }
   };
 
+
+  const body = document.body;
+if(localStorage.getItem('tema') === 'escuro') {   body.classList.add('dark');       } else {   body.classList.remove('dark');      }
+
