@@ -16,8 +16,6 @@ return dgetUrlParameterd;  }
 
 
 
-var dversion="1.0.0.0";
-
   // Variáveis de suporte
   const translations = {
     pt: {
