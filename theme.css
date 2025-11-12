@@ -1,0 +1,157 @@
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Container geral */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Cabeçalho */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007BFF;
+    color: white;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  /* Idiomas */
+  .languages {
+    margin-top: 10px;
+  }
+
+  .languages button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .languages button:hover {
+    background: white;
+    color: #007BFF;
+  }
+
+  /* Seções */
+  section {
+    margin-top: 30px;
+  }
+
+  /* Botão de download */
+  .download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .download-btn:hover {
+    background-color: #218838;
+  }
+
+  /* Versão */
+  .version {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  /* Galeria */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  /* Recursos e Sobre */
+  ul {
+    margin-top: 15px;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  /* Modal */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    border-radius: 8px;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .close:hover {
+    color: #bbb;
+  }
+
+  /* Responsividade */
+  @media(max--width: 768px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+    .download-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+
