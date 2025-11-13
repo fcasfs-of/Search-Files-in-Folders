@@ -65,6 +65,8 @@ a {
 section.ct {   text-align:center;  }
 section.rt {   text-align:right;  }
 
+section.ic h2:before{  display:none;  content:"";  }
+
 
   /* Botão de download */
   .download-btn {
