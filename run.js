@@ -73,8 +73,12 @@ return dgetUrlParameterd;  }
   const langEsBtn = document.getElementById('lang-es');
   const langEnBtn = document.getElementById('lang-en');
 
+
+var t_lanf="pt";
+
   // Função para trocar idioma
   function setLanguage(lang) {
+    t_lanf = translations[lang];
     const t = translations[lang];
      if (t){  
    localStorage.setItem("lang", lang);
@@ -113,7 +117,10 @@ if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"))
       modal.style.display = 'block';
       modalImg.src = img.dataset.full || img.src;
       modalImg.alt = img.alt;
-       modalTxt.innerHTML="<br/>"+img.dataset.ig+"<br/><br/>";
+      modalTxt.innerHTML="";
+        if (t_lanf){
+          modalTxt.innerHTML="<br/>"+t_lanf["screenshotsTitle"]+": "+img.dataset.ig+"<br/><br/>";
+        }
    };
   });
 
