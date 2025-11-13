@@ -43,7 +43,7 @@
 
   .language-selector button {
     background: none;
-    border: none;
+    border: none;  color:#000;
     cursor: pointer;
     font-weight: bold;
     padding: 5px 10px;
@@ -184,7 +184,7 @@
     if (msg){  
     localStorage.setItem("lang", currentLang);
 
-    appTcss.innerHTML = "<style> [data-lang=\""+lang+"\"] {  opacity:0.7;  pointer-events:none;  }  </style>";
+    appTcss.innerHTML = "<style> [data-lang=\""+lang+"\"] {  background: #e0e0e0 !important;   opacity:0.7;  pointer-events:none;  }  </style>";
 
     titleEl.innerHTML = msg.title;
     messageEl.innerHTML = msg.message;
