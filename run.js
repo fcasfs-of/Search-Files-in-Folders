@@ -16,6 +16,9 @@ return dgetUrlParameterd;  }
 
 
 // Elementos
+  const appTcss = document.getElementById('csscustom');
+appTcss.innerHTML = "";
+
   const appTitle = document.getElementById('app-title');
   const downloadText = document.getElementById('downloadText');
   const versionText = document.getElementById('version');
@@ -45,6 +48,7 @@ body.oncontextmenu=function() { return false; };
     const t = translations[lang];
      if (t){  
    localStorage.setItem("lang", lang);
+appTcss.innerHTML = "<sty"+"le> #lang-"+lang+" {  opacity:0.7;  pointer-events:none;  }  </sty"+"le>";
          
     appTitle.textContent = t.appTitle;
     downloadText.textContent = t.downloadText;
