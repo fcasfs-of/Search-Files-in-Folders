@@ -95,7 +95,7 @@ a {
     margin-top: 20px;
   }
 
-  .gallery img {
+  .gallerys img {
     width: 100%;
     height: auto;
     cursor: pointer;
@@ -103,9 +103,23 @@ a {
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .gallery img:hover {
+  .gallerys img:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+.gallery img {
+   border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+   padding: 5px;
+    width: 150px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
   }
 
   /* Recursos e Sobre */
