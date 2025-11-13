@@ -77,6 +77,7 @@ return dgetUrlParameterd;  }
 var t_lanf=translations["pt"];
 
 const body = document.body;
+body.oncontextmenu=function() { return false; };
 
 
   // Função para trocar idioma
