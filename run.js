@@ -74,7 +74,7 @@ return dgetUrlParameterd;  }
   const langEnBtn = document.getElementById('lang-en');
 
 
-var t_lanf="pt";
+var t_lanf=translations["pt"];
 
   // Função para trocar idioma
   function setLanguage(lang) {
