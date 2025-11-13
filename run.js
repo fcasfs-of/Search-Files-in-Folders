@@ -105,6 +105,7 @@ if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"))
   // Modal
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
+  const modalTxt = document.getElementById('modal-txt');
   const closeModal = document.getElementById('closeModal');
 
   document.querySelectorAll('#gallery img').forEach(img => {
@@ -112,17 +113,24 @@ if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"))
       modal.style.display = 'block';
       modalImg.src = img.dataset.full || img.src;
       modalImg.alt = img.alt;
-    };
+       modalTxt.innerHTML="<br/>"+img.dataset.ig+"<br/><br/>";
+   };
   });
 
   closeModal.onclick = () => {
     modal.style.display = 'none';
+      modalImg.src = "";
+      modalImg.alt = "";
+      modalTxt.innerHTML="";
   };
 
   window.onclick = (event) => {
     if (event.target == modal) {
       modal.style.display = 'none';
-    }
+       modalImg.src = "";
+      modalImg.alt = "";
+       modalTxt.innerHTML="";
+  }
   };
 
 
