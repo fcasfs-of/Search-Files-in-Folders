@@ -47,7 +47,7 @@ body.oncontextmenu=function() { return false; };
     const t = translations[lang];
      if (t){  
    localStorage.setItem("lang", lang);
-appTcss.innerHTML = "<style> #lang-"+lang+" {  opacity:0.7;  pointer-events:none;  }  </style>";
+appTcss.innerHTML = "<style> #lang-"+lang+" {  background: #fff;    color: #007BFF;   opacity:0.7;  pointer-events:none;  }  </style>";
          
     appTitle.textContent = t.appTitle;
     downloadText.textContent = t.downloadText;
