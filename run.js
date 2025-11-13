@@ -17,7 +17,6 @@ return dgetUrlParameterd;  }
 
 // Elementos
   const appTcss = document.getElementById('csscustom');
-appTcss.innerHTML = "";
 
   const appTitle = document.getElementById('app-title');
   const downloadText = document.getElementById('downloadText');
@@ -48,7 +47,7 @@ body.oncontextmenu=function() { return false; };
     const t = translations[lang];
      if (t){  
    localStorage.setItem("lang", lang);
-appTcss.innerHTML = "<sty"+"le> #lang-"+lang+" {  opacity:0.7;  pointer-events:none;  }  </sty"+"le>";
+appTcss.innerHTML = "<style> #lang-"+lang+" {  opacity:0.7;  pointer-events:none;  }  </style>";
          
     appTitle.textContent = t.appTitle;
     downloadText.textContent = t.downloadText;
