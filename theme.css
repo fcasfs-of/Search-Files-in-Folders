@@ -59,13 +59,13 @@ a {
   }
 
   /* Seções */
-  section {
+.tab-content.active section, section {
     margin-top: 30px;  transition: all .1s linear;
   }
 section.ct {   text-align:center;  }
 section.rt {   text-align:right;  }
 
-section.ic h2:before{  display:none;  content:"";  }
+.ic h2:before, section.ic h2:before{  display:none;  content:"";  }
 
 
   /* Botão de download */
@@ -93,7 +93,7 @@ section.ic h2:before{  display:none;  content:"";  }
   }
 
   /* Galeria */
-  .gallery {      user-select:none;
+ .tab-content.active .gallery, .gallery {      user-select:none;
    display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
@@ -102,7 +102,7 @@ section.ic h2:before{  display:none;  content:"";  }
     margin-top: 20px;
   }
 
-  .gallery img {
+  .tab-content.active .gallery img, .gallery img {
     width: 100%;
     height: auto;   object-fit: cover; 
     cursor: pointer;
@@ -111,7 +111,7 @@ section.ic h2:before{  display:none;  content:"";  }
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .gallery img:hover {
+.tab-content.active .gallery img:hover, .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
@@ -200,11 +200,11 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 
 
   .tab-container {
-    width: 80%;
+    width: 100%;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
+    overflow: hidden;    color:#000;
   }
 
   /* Estilo para os botões de aba */
@@ -240,7 +240,7 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
   /* Estilo para o conteúdo das abas */
   .tab-content {
     padding: 20px;  overflow:auto;
-    display: none;
+    display: none;  color:#000;
     animation: fadeIn 0.3s ease-in-out;
   }
 
