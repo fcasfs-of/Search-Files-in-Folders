@@ -197,3 +197,72 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 }
 
 
+
+
+  .tab-container {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  /* Estilo para os botões de aba */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #2c3e50;
+  }
+
+  .tab {
+    flex: 1;
+    padding: 14px 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    color: #ecf0f1;
+    text-align: center;
+  }
+
+  .tab:hover {
+    background-color: #34495e;
+  }
+
+  .tab.active {
+    background-color: #2980b9;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  /* Estilo para o conteúdo das abas */
+  .tab-content {
+    padding: 20px;  overflow:auto;
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  /* Animação de fade */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Responsividade */
+  @media(max-width: 600px) {
+    .tab {
+      padding: 12px 10px;
+      font-size: 14px;
+    }
+  }
+
+
+
+
+
