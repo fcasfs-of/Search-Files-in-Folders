@@ -62,8 +62,10 @@ a {
 .tab-content.active section, section {
     margin-top: 30px;  transition: all .1s linear;
   }
+
 section.ct {   text-align:center;  }
 section.rt {   text-align:right;  }
+section.lt {   text-align:left;  }
 
 .ic h2:before, section.ic h2:before{  display:none;  content:"";  }
 
