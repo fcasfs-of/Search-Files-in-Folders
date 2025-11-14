@@ -112,3 +112,37 @@ if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"))
 
 if(localStorage.getItem('tema') === 'escuro') {   body.classList.add('dark');       } else {   body.classList.remove('dark');      }
 
+
+
+
+  // Seleciona todas as abas
+  const tabs = document.querySelectorAll('.tab');
+  // Seleciona todas as áreas de conteúdo
+  const contents = document.querySelectorAll('.tab-content');
+
+if (tabs){
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Remove a classe ativa de todas as abas
+      tabs.forEach(t => t.classList.remove('active'));
+      // Adiciona a classe ativa na aba clicada
+      tab.classList.add('active');
+
+      const target = tab.getAttribute('data-tab');
+
+      // Oculta todas as abas de conteúdo
+     if(contents){
+     contents.forEach(content => {
+        content.classList.remove('active');
+        if(content.id === target){
+          content.classList.add('active');
+        }
+      });
+      }
+    });
+  });
+  
+  }
+
+
+
