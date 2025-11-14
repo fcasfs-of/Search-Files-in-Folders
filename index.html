@@ -59,26 +59,45 @@
     <div class="version" id="version"></div>
   </section>
 
-  <!-- Novidades -->
-  <section class="ct">
-    <h2 id="news-title"></h2>
-    <ul id="news-list"></ul>
-  </section>
 
+<div class="tab-container">
+
+  <div class="tabs">
+    <button class="tab active" data-tab="tab1" ></button>
+    <button class="tab" data-tab="tab2" id="screenshots-title"></button>
+    <button class="tab" data-tab="tab3" id="resources-title"></button>
+  </div>
+ 
+  <div class="tab-contents">
+
+<div id="tab1" class="tab-content active">
+ <!-- Novidades -->
+<section class="ct">
+<ul id="news-list"></ul>
+</section>
+</div>
+
+<div id="tab2" class="tab-content">
   <!-- Galeria de capturas -->
   <section>
-    <h2 id="screenshots-title"></h2>
     <div class="gallery" id="gallery">
 <img src="pics001.jpg" data-ig="01" data-full="pics001.jpg" />
 <img src="pics002.jpg" data-ig="02" data-full="pics002.jpg" /> 
     </div>
   </section>
+</div>
 
-  <!-- Recursos -->
+<div id="tab3" class="tab-content">
+   <!-- Recursos -->
   <section>
-    <h2 id="resources-title"></h2>
     <ul id="resources-list"></ul>
   </section>
+</div>
+     
+  </div>
+
+</div>
+
 
   <!-- Sobre o Aplicativo -->
   <section class="ct">
