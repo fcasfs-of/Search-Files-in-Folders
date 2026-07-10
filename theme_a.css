@@ -44,6 +44,8 @@
   .language-selector button:hover {
     background-color: #e0e0e0;
   }
+  .language-selector button svg {    margin:0 auto;  margin-bottom:5px;  display:block;   }
+
 
   main {
     flex: 1;
