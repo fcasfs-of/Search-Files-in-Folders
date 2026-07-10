@@ -1,3 +1,20 @@
+function carregarTudo(listaRecursos) {   if(listaRecursos){
+    listaRecursos.forEach(item => {
+        const destinoStr = item.destino; 
+        const tag = item.tag;           
+        const atributos = item.atributos; 
+        const elementoPai = document.getElementsByTagName(destinoStr)[0];
+        if (!elementoPai) {            return;        }
+        const elemento = document.createElement(tag);
+        for (const chave in atributos) {
+            if (atributos.hasOwnProperty(chave)) {                elemento.setAttribute(chave, atributos[chave]);            }
+        }
+        elementoPai.appendChild(elemento);
+    });     }
+}
+
+
+
 // --- CONFIGURAÇÕES E ESTADO GLOBAL ---
 const body = document.body;
 let currentLang = 'pt';
@@ -75,7 +92,15 @@ init();
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  
+  carregarTudo([
+	{
+        destino: 'body',  tag: 'script',   
+        atributos: {    
+            'src': '/btn_top.js'
+        }
+    }
+]);
+
 });
 
 
