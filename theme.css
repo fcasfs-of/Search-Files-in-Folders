@@ -418,6 +418,54 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 
 
 
+/* Estilos base para computadores */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: none; /* Oculto por padrão */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.2s, opacity 0.3s;
+}
+
+/* Efeitos de passar o mouse (apenas para computadores) */
+@media (hover: hover) {
+    .back-to-top:hover {
+        background-color: #0056b3;
+        transform: scale(1.1);
+    }
+}
+
+/* Responsividade: Telas menores e celulares */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 16px; /* Mais próximo da borda inferior */
+        right: 16px;  /* Mais próximo da borda lateral */
+        width: 42px;  /* Tamanho menor para não obstruir a tela */
+        height: 42px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra mais visível no celular */
+    }
+    
+    .back-to-top svg {
+        width: 20px;  /* Ícone ligeiramente menor */
+        height: 20px;
+    }
+}
+
+
+
+
+
 
 /* ==========================================================================
    SISTEMA DE SCROLLBAR PROFISSIONAL AVANÇADO & CORES ADAPTATIVAS
