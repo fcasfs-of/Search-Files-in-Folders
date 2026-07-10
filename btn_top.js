@@ -7,9 +7,9 @@
 
   document.addEventListener('scroll', () => {
     if (window.scrollY > 120) {
-      btn_srltop.display = 'flex';
+      btn_srltop.style.display = 'flex';
     } else {
-      btn_srltop.display = 'none';
+      btn_srltop.style.display = 'none';
     }
   });
 
