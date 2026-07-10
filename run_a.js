@@ -80,7 +80,7 @@ carregarTudo([
 	{
         destino: 'body',  tag: 'script',   
         atributos: {    
-            'src': '/btn_top.js'
+            'src': 'btn_top.js'
         }
     }
 ]);
