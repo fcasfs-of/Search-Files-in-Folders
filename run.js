@@ -87,7 +87,7 @@ const elements = {
         es: { disponivel: 'Disponible para descargar', indisponivel: 'No disponible', erroRede: 'Error de red o CORS', urlVazia: 'Enlace no informado' }
     };
 
-    const card = appCardInfo;
+    const card = elements.appCardInfo;
     card.className = 'card';
     card.innerHTML = `
         <div id="resultado" class="resultado-container">
