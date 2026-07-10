@@ -31,6 +31,15 @@ function getUrlParameter(sParam) {  var dgetUrlParameterd="";
 return dgetUrlParameterd;  }
 
 
+    function downloadBtn(idDoElemento) {
+        const elementoBotao = document.getElementById(idDoElemento);
+          if (elementoBotao && elementoBotao.getAttribute('href')) {
+            const hrefValido = elementoBotao.getAttribute('href').trim();
+            if (hrefValido !== "") {                return hrefValido;             }
+        }
+        return ""; 
+    }
+
 
 // --- CONFIGURAÇÕES E ESTADO GLOBAL ---
 const body = document.body;
@@ -42,6 +51,7 @@ body.oncontextmenu = () => false;
 // --- ELEMENTOS DO DOM ---
 const elements = {
   appTcss: document.getElementById('csscustom'),
+  appCardInfo: document.getElementById('card_linkinf'),
   appTitle: document.getElementById('app-title'),
   downloadText: document.getElementById('downloadText'),
   versionText: document.getElementById('version'),
@@ -64,6 +74,54 @@ const elements = {
   contents: document.querySelectorAll('.tab-content')
 };
 
+
+    const icones = {
+        nuvem: `<svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>`,
+        sucesso: `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>`,
+        erro: `<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>`
+    };
+
+    const traducoes = {
+        pt: { disponivel: 'Disponível para download', indisponivel: 'Indisponível', erroRede: 'Erro de rede ou CORS', urlVazia: 'Link não informado' },
+        en: { disponivel: 'Available for download', indisponivel: 'Unavailable', erroRede: 'Network error or CORS', urlVazia: 'URL not provided' },
+        es: { disponivel: 'Disponible para descargar', indisponivel: 'No disponible', erroRede: 'Error de red o CORS', urlVazia: 'Enlace no informado' }
+    };
+
+    const card = appCardInfo;
+    card.className = 'card';
+    card.innerHTML = `
+        <div id="resultado" class="resultado-container">
+            <div class="spinner"></div>
+        </div>
+    `;
+
+
+    function verificarLink(iconeSugerido, idiomaSugerido, urlArquivo) {
+        const elemento = document.getElementById('resultado');
+        
+        const lang = traducoes[idiomaSugerido] ? idiomaSugerido : 'pt';
+        const texto = traducoes[lang];
+
+        if (!urlArquivo || urlArquivo.trim() === "") {
+            elemento.innerHTML = `<span class="status-erro">${icones.erro} ${texto.urlVazia}</span>`;
+            return;
+        }
+
+        fetch(urlArquivo, { method: 'HEAD' })
+            .then(function(resposta) {
+                if (resposta.ok) {
+                    const iconeSucesso = icones[iconeSugerido] || icones.sucesso;
+                    elemento.innerHTML = `<span class="status-sucesso">${iconeSucesso} ${texto.disponivel}</span>`;
+                } else {
+                    elemento.innerHTML = `<span class="status-erro">${icones.erro} ${texto.indisponivel} (Erro ${resposta.status})</span>`;
+                }
+            })
+            .catch(function(erro) {
+                elemento.innerHTML = `<span class="status-erro">${icones.erro} ${texto.erroRede}</span>`;
+            });
+    }
+
+
 // --- SISTEMA DE IDIOMAS (INTERNACIONAlIZAÇÃO) ---
 function setLanguage(lang) {
   const t = translations[lang];
@@ -75,6 +133,8 @@ function setLanguage(lang) {
   currentTranslation = t;
   localStorage.setItem("lang", lang);
 
+verificarLink('nuvem', lang, downloadBtn('meuBotaoDownload'));
+	
   // Injeta o estilo para destacar o botão do idioma ativo
   if (elements.appTcss) {
     elements.appTcss.innerHTML = `
