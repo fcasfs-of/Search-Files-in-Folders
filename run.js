@@ -297,9 +297,7 @@ const tabButtons = document.querySelectorAll('.tabs button');
 tabButtons.forEach(buttontbf => {
   const titletbg = buttontbf.querySelector('h2');
   if (titletbg){	const dtitletbg = titletbg.getAttribute('id');
-  if (dtitletbg && dtitletbg.textContent.trim() === searchpgtbg+"-titile") {
-    titletbg.addEventListener('click', (event) => {      event.preventDefault();       buttontbf.click();     });
-  }   }
+  if (dtitletbg.textContent.trim() === searchpgtbg+"-title") {     buttontbf.click();    }   }
 });
 	  }
 });
