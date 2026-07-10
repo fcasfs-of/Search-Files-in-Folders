@@ -296,9 +296,10 @@ document.addEventListener("DOMContentLoaded", function(){
 const tabButtons = document.querySelectorAll('.tabs button');
 tabButtons.forEach(buttontbf => {
   const titletbg = buttontbf.querySelector('h2');
+  if (titletbg){	titletbg = titletbg.getAttribute('id');
   if (titletbg && titletbg.textContent.trim() === searchpgtbg+"-titile") {
     titletbg.addEventListener('click', (event) => {      event.preventDefault();       buttontbf.click();     });
-  }
+  }   }
 });
 	  }
 });
