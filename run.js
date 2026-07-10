@@ -297,7 +297,7 @@ const tabButtons = document.querySelectorAll('.tabs button');
 tabButtons.forEach(buttontbf => {
   const titletbg = buttontbf.querySelector('h2');
   if (titletbg){	const dtitletbg = titletbg.getAttribute('id');
-  if (dtitletbg.textContent.trim() === searchpgtbg+"-title") {     buttontbf.click();    }   }
+  if (dtitletbg.trim() === searchpgtbg+"-title") {     buttontbf.click();    }   }
 });
 	  }
 });
