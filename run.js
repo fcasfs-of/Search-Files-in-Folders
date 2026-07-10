@@ -307,7 +307,7 @@ tabButtons.forEach(buttontbf => {
 const tabimgdButtons = document.querySelectorAll('.gallery img');
 tabimgdButtons.forEach(imgdiel => {
   const titldetbg = imgdiel.getAttribute('data-ig');
-  if (titldetbg.trim() === searchpgtbg_img) {     imgdiel.click();    }   }
+  if (titldetbg.trim() === searchpgtbg_img) {     imgdiel.click();      }
 });
 		  
 	  }
