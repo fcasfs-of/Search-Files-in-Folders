@@ -136,7 +136,7 @@ function setLanguage(lang) {
   currentTranslation = t;
   localStorage.setItem("lang", lang);
 
-verificarLink('nuvem', lang, downloadBtn('meuBotaoDownload'));
+verificarLink('nuvem', lang, downloadBtn('downloadBtn'));
 	
   // Injeta o estilo para destacar o botão do idioma ativo
   if (elements.appTcss) {
