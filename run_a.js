@@ -72,8 +72,20 @@ elements.langButtons.forEach(btn => {
   btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
 });
 
+
 // --- INICIALIZAÇÃO DA APLICAÇÃO ---
 function init() {
+	
+carregarTudo([
+	{
+        destino: 'body',  tag: 'script',   
+        atributos: {    
+            'src': '/btn_top.js'
+        }
+    }
+]);
+
+	
   // Inicializa o Tema (Claro/Escuro)
   if (body) {
     const savedTheme = localStorage.getItem('tema');
@@ -90,17 +102,5 @@ function init() {
 init();
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-  carregarTudo([
-	{
-        destino: 'body',  tag: 'script',   
-        atributos: {    
-            'src': '/btn_top.js'
-        }
-    }
-]);
-
-});
 
 
