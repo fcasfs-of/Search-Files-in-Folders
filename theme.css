@@ -281,6 +281,27 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
   }
 
 
+/* ==========================================================================
+   MEDIA QUERY PARA DISPOSITIVOS MÓVEIS (Telas até 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .tab-container {
+    border-radius: 6px; /* Bordas levemente menores para telas pequenas */
+  }
+
+  .tab {
+    padding: 16px 15px; /* Aumenta a altura para facilitar o toque e reduz a largura interna */
+    font-size: 15px; /* Diminui levemente o texto para caber mais termos */
+    width:100%; 
+    flex: initial; /* Permite que cada aba use apenas o espaço necessário */
+  }
+
+  .tab-content {
+    padding: 15px; /* Reduz o espaçamento interno para aproveitar melhor o espaço do celular */
+  }
+}
+
+
 
 
 
