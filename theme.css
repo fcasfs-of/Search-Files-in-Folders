@@ -549,9 +549,15 @@ html, body, * {
 
 
 
+@keyframes faderIn {
+  from {    opacity: 0;  }
+  to {    opacity: 1;  }
+}
+
+
     /* CAIXA DE AVISO (OCULTA POR PADRÃO) */
     .aviso-vazio {
-      display: none;
+      display: none;       text-align: center;         margin: 0 auto;
       align-items: center;
       gap: 12px;
       padding: 16px;
@@ -574,17 +580,11 @@ html, body, * {
 @media (max-width: 480px) {
   .aviso-vazio {
     flex-direction: column;
-    align-items: flex-start;
+     align-items: center;
     gap: 8px;
     padding: 12px;
     font-size: 0.85rem;
   }
-}
-
-
-@keyframes faderIn {
-  from {    opacity: 0;  }
-  to {    opacity: 1;  }
 }
 
 
