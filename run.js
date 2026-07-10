@@ -15,20 +15,17 @@ function carregarTudo(listaRecursos) {   if(listaRecursos){
 
 
 
-function getUrlParameter(sParam) {  var dgetUrlParameterd="";
-    var sPageURL = decodeURIComponent(location.href);//window.location.search.substring(1));
-   if(sPageURL.split('?')){
-       var sURLVariables = sPageURL.split('?')[1].split('&');
-       if(sPageURL.split('?')[1].split('&')){
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=');
-        if(sURLVariables[i].split('=')){
-        if (sParameterName[0] == sParam) {
-            dgetUrlParameterd=sParameterName[1];
-        }  }
-    }   }
-   }
-return dgetUrlParameterd;  }
+       var paramName = decodeURIComponent(sParameterName[0]);
+        var paramValue = sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        if (paramName === sParam) {            return paramValue;        }
+    }    
+return "";   }
+
 
 
     function downloadBtn(idDoElemento) {
@@ -290,5 +287,15 @@ carregarTudo([
 
 // Executa a inicialização
 init();
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+	const searchpgg = getUrlParameter("tab");
+	  if(searchpgg && searchpgg!=""){
+
+	  }
+});
+
 
 
