@@ -41,6 +41,21 @@ return dgetUrlParameterd;  }
     }
 
 
+function formatarTamanho(bytes) {
+        let numeroBytes = parseInt(bytes);
+        if (isNaN(numeroBytes) || numeroBytes < 0) return "";
+        if (numeroBytes === 0) return " (0 B)";
+        // Unidades de armazenamento suportadas
+        const unidades = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+        // Encontra o índice da unidade dividindo sucessivamente por 1024
+        const indice = Math.floor(Math.log(numeroBytes) / Math.log(1024));
+        // Calcula o valor final baseado no índice encontrado
+        const valorCalculado = (numeroBytes / Math.pow(1024, indice)).toFixed(2);
+        return ` (${valorCalculado} ${unidades[indice]})`;
+ }
+
+
+
 // --- CONFIGURAÇÕES E ESTADO GLOBAL ---
 const body = document.body;
 let currentTranslation = translations["pt"];
@@ -113,8 +128,12 @@ const elements = {
         fetch(urlArquivo, { method: 'HEAD' })
             .then(function(resposta) {
                 if (resposta.ok) {
-                    const iconeSucesso = icones[iconeSugerido] || icones.sucesso;
-                    elemento.innerHTML = `<span class="status-sucesso">${iconeSucesso} ${texto.disponivel}</span>`;
+                     // Captura e calcula o tamanho usando a nova função com todas as escalas
+                    const tamanhoBytes = resposta.headers.get('content-length');
+                    const textoTamanho = formatarTamanho(tamanhoBytes);
+
+					const iconeSucesso = icones[iconeSugerido] || icones.sucesso;
+                    elemento.innerHTML = `<span class="status-sucesso">${iconeSucesso} ${texto.disponivel} <br/> ${textoTamanho}</span>`;
                 } else {
                     elemento.innerHTML = `<span class="status-erro">${icones.erro} ${texto.indisponivel} (Erro ${resposta.status})</span>`;
                 }
