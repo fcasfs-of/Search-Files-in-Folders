@@ -66,6 +66,11 @@ function init() {
   // Inicializa o Idioma salvo ou usa o padrão
   const savedLang = localStorage.getItem("lang");
   setLanguage(savedLang && savedLang !== "" ? savedLang : currentLang);
+  
+}
+
+// Executa a inicialização
+init();
 
 
   (function() {
@@ -103,8 +108,4 @@ function init() {
     };
 })();
 
-  
-}
 
-// Executa a inicialização
-init();
