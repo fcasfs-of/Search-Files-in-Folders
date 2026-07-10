@@ -274,7 +274,7 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
   #resources-title::before,
   #screenshots-title::before,
   #news-title::before,
-  #about-title::before {   
+  #about-title::before {   display:block;
     margin-right: 6px; /* Reduz levemente o espaço no celular para economizar tela */
     top: 0.1rem; /* Ajusta o alinhamento já que a fonte do título diminui no mobile */
   }
