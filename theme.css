@@ -404,7 +404,7 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 }
 
 /* Ícone Customizado antes do texto (Opcional) */
-.tab-content section li::before {
+.tab-content section ul.suc li::before {
  content: "";
   display: inline-block;
   width: 18px;  /* Controla a largura do ícone */
