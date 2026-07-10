@@ -56,6 +56,15 @@ function formatarTamanho(bytes) {
 
 
 
+
+function verificarListaVazia(texto) {
+    const textoMinusculo = texto.toLowerCase().trim();
+    const termos = [  "lista vazia.",  "empty list",   "lista vacia."  ];
+    if (termos.includes(textoMinusculo)) {        return `    <div class="aviso-vazio">      <svg xmlns="http://w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>    <span> ${texto} </span>    </div>`;    }
+return texto;}
+
+
+
 // --- CONFIGURAÇÕES E ESTADO GLOBAL ---
 const body = document.body;
 let currentTranslation = translations["pt"];
@@ -179,8 +188,8 @@ verificarLink('nuvem', lang, downloadBtn('downloadBtn'));
   if (elements.aboutTitle) elements.aboutTitle.textContent = t.aboutTitle;
   if (elements.aboutText) elements.aboutText.textContent = t.aboutText;
   if (elements.resourceslistText) elements.resourceslistText.innerHTML = t.resourceslistText;
-  if (elements.newslistText) elements.newslistText.innerHTML = t.NewslistText;
-  if (elements.newslistTtitle) elements.newslistTtitle.textContent = t.NewslistTitle;
+  if (elements.newslistText) elements.newslistText.innerHTML = verificarListaVazia(t.NewslistText);
+  if (elements.newslistTtitle) elements.newslistTtitle.textContent = verificarListaVazia(t.NewslistTitle);
 }
 
 // Ouvintes de clique para troca de idioma
