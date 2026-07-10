@@ -1,20 +1,3 @@
-function carregarTudo(listaRecursos) {   if(listaRecursos){
-    listaRecursos.forEach(item => {
-        const destinoStr = item.destino; 
-        const tag = item.tag;           
-        const atributos = item.atributos; 
-        const elementoPai = document.getElementsByTagName(destinoStr)[0];
-        if (!elementoPai) {            return;        }
-        const elemento = document.createElement(tag);
-        for (const chave in atributos) {
-            if (atributos.hasOwnProperty(chave)) {                elemento.setAttribute(chave, atributos[chave]);            }
-        }
-        elementoPai.appendChild(elemento);
-    });     }
-}
-
-
-
 // --- CONFIGURAÇÕES E ESTADO GLOBAL ---
 const body = document.body;
 let currentLang = 'pt';
@@ -75,17 +58,6 @@ elements.langButtons.forEach(btn => {
 
 // --- INICIALIZAÇÃO DA APLICAÇÃO ---
 function init() {
-	
-carregarTudo([
-	{
-        destino: 'body',  tag: 'script',   
-        atributos: {    
-            'src': 'btn_top.js'
-        }
-    }
-]);
-
-	
   // Inicializa o Tema (Claro/Escuro)
   if (body) {
     const savedTheme = localStorage.getItem('tema');
