@@ -368,5 +368,54 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 
 
 
+/* Lista Ultra (UL) */
+.tab-content section ul {
+  list-style: none; /* Remove as bolinhas padrão */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Espaçamento uniforme entre os itens */
+}
+
+/* Itens da Lista (LI) */
+.tab-content section li {
+  display: flex;
+  align-items: center;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.5;
+  padding: 10px 14px;
+  background-color: #f8f9fa; /* Fundo sutil profissional */
+  border-radius: 6px;   overflow:auto;
+  border-left: 4px solid #007bff; /* Detalhe lateral moderno */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Efeito de Hover (Passar o mouse) */
+.tab-content section li:hover {
+  background-color: #e9ecef;
+  transform: translateX(4px); /* Leve deslize interativo */
+}
+
+/* Ícone Customizado antes do texto (Opcional) */
+.tab-content section li::before {
+  content: "✓"; /* Ícone de check de alta resolução */
+  color: #007bff;
+  font-weight: bold;
+  margin-right: 12px;
+  flex-shrink: 0; /* Garante que o ícone não esmague no mobile */
+}
+
+/* Responsividade para Telas Menores (Mobile) */
+@media (max-width: 480px) {
+  .tab-content section li {
+    font-size: 0.9rem; /* Diminui o texto em telas pequenas */
+    padding: 8px 10px;
+  }
+}
+
+
 
 
