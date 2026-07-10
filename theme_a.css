@@ -102,3 +102,39 @@
 
 
 
+
+/* ==========================================================================
+   MEDIA QUERY PARA DISPOSITIVOS MÓVEIS (Telas até 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  header {
+    justify-content: center; /* Centraliza o seletor de idioma no celular */
+    padding: 15px;
+  }
+
+  main {
+    padding: 20px 15px; /* Reduz o espaçamento interno para aproveitar a tela */
+  }
+
+  .icon {
+    width: 80px; /* Reduz o tamanho do ícone */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Diminui o título para não quebrar excessivamente */
+  }
+
+  p {
+    font-size: 1rem; /* Reduz o texto para melhor leitura no celular */
+    margin-bottom: 20px;
+  }
+
+  a {
+    width: 100%; /* Faz o botão ocupar a largura total (estilo mobile-first) */
+    box-sizing: border-box;
+    padding: 14px 20px; /* Aumenta a área de toque */
+  }
+}
+
+
+
