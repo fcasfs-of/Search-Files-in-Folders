@@ -419,3 +419,78 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 
 
 
+/* ==========================================================================
+   SISTEMA DE SCROLLBAR PROFISSIONAL AVANÇADO & CORES ADAPTATIVAS
+   ========================================================================== */
+
+/* 1. ARQUITETURA DE CORES (Scoped Variables) */
+:root {
+  /* Estado Padrão (Light Mode): Cria elementos escuros na página clara */
+  --sb-track: transparent;
+  --sb-thumb: rgba(0, 0, 0, 0.25);
+  --sb-thumb-hover: rgba(0, 0, 0, 0.55);
+  --sb-firefox-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+body.dark {
+  /* Estado Invertido (Dark Mode): Cria elementos claros na página escura */
+  --sb-track: transparent;
+  --sb-thumb: rgba(255, 255, 255, 0.3);
+  --sb-thumb-hover: rgba(255, 255, 255, 0.7);
+  --sb-firefox-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+/* 2. ARQUITETURA DE MOTORPADRÃO (W3C - Firefox) */
+html, body, * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-firefox-color);
+}
+
+/* 3. ARQUITETURA MOTOR WEBKIT (Chrome, Edge, Safari Desktop) */
+@media (pointer: fine) {
+  
+  /* Estrutura Responsiva Dinâmica */
+  ::-webkit-scrollbar {
+    width: clamp(6px, 0.6vw, 10px);
+    height: clamp(6px, 0.6vw, 10px);
+  }
+
+  /* Trilho Flutuante Premium */
+  ::-webkit-scrollbar-track {
+    background: var(--sb-track);
+  }
+
+  /* Engenharia do Dedão de Rolagem */
+  ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb);
+    border-radius: 100px;         /* Formato pílula anatômico */
+    border: 2px solid transparent; /* Camada isolante invisível */
+    background-clip: padding-box;  /* Truque avançado: faz a barra flutuar longe da borda */
+    transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Transição de alta performance */
+  }
+
+  /* Estado Interativo */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover);
+    background-clip: padding-box;
+  }
+}
+
+/* 4. EXCLUSÃO MÓVEL (Responsividade Avançada para Telas Touch) */
+@media (pointer: coarse) {
+  html, body, * {
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch; /* Habilita aceleração por GPU no iOS/Android */
+  }
+  
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+  }
+}
+
+
+
+
+
