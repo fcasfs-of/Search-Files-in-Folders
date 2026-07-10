@@ -1,22 +1,28 @@
  * {  user-select: none;  transition: all .1s linear;   }
 
 
-  body.dark {
-     background-color: #333;
-    color: #fff;
+  /* Reset básico */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;    color: #333;
+    line-height: 1.6;
   }
 
 
-a {
-    text-decoration: none;
-    color: inherit;
-  }
+body.dark {     background-color: #333;    color: #fff;  }
+
+
+a {    text-decoration: none;    color: inherit;  }
+
 
   /* Container geral */
-  .container {
-    margin: 0 auto;
-    padding: 20px;
-  }
+  .container {    margin: 0 auto;    padding: 20px;  }
 
   /* Cabeçalho */
   header {  transition: all .1s linear;
@@ -31,15 +37,10 @@ a {
     overflow: auto;
   }
 
-  header h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
+  header h1 {    font-size: 2rem;    margin-bottom: 10px;  }
 
   /* Idiomas */
-  .languages {
-    margin-top: 10px;
-  }
+  .languages {    margin-top: 10px;  }
 
   .languages button {
     background: transparent;
@@ -53,15 +54,10 @@ a {
     transition: background 0.3s, color 0.3s;
   }
 
-  .languages button:hover {
-    background: white;
-    color: #007BFF;
-  }
+  .languages button:hover {    background: white;    color: #007BFF;  }
 
   /* Seções */
-.tab-content.active section, section {
-    margin-top: 30px;  transition: all .1s linear;
-  }
+.tab-content.active section, section {    margin-top: 30px;  transition: all .1s linear;  }
 
 section.ct {   text-align:center;  }
 section.rt {   text-align:right;  }
@@ -166,6 +162,26 @@ section.lt {   text-align:left;  }
   .close:hover {
     color: #bbb;
   }
+
+
+
+@media (max-width: 576px) {
+  .modal {
+    padding: 10px;
+  }
+  
+  .modal-content {
+    max-width: 95%; /* Ganha mais espaço na tela do celular */
+  }
+
+  .close {
+    top: 10px;
+    right: 15px;
+    font-size: 40px; /* Botão maior para facilitar o toque com o dedo */
+    padding: 10px; /* Área de toque expandida */
+  }
+}
+
 
   /* Responsividade */
   @media(max--width: 768px) {
