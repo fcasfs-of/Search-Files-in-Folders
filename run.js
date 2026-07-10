@@ -291,9 +291,15 @@ init();
 
 
 document.addEventListener("DOMContentLoaded", function(){
-	const searchpgg = getUrlParameter("tab");
-	  if(searchpgg && searchpgg!=""){
-
+	const searchpgtbg = getUrlParameter("tab");
+	  if(searchpgtbg && searchpgtbg!=""){
+const tabButtons = document.querySelectorAll('.tabs button');
+tabButtons.forEach(buttontbf => {
+  const titletbg = buttontbf.querySelector('h2');
+  if (titletbg && titletbg.textContent.trim() === searchpgtbg+"-titile") {
+    titletbg.addEventListener('click', (event) => {      event.preventDefault();       buttontbf.click();     });
+  }
+});
 	  }
 });
 
