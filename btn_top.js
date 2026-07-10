@@ -7,13 +7,9 @@
 
   document.addEventListener('scroll', () => {
     if (window.scrollY > 120) {
-      btn_srltop.style.opacity = '1';
-      btn_srltop.style.visibility = 'visible';
-      btn_srltop.style.transform = 'translateY(0)';
+      btn_srltop.display = 'flex';
     } else {
-      btn_srltop.style.opacity = '0';
-      btn_srltop.style.visibility = 'hidden';
-      btn_srltop.style.transform = 'translateY(20px)';
+      btn_srltop.display = 'none';
     }
   });
 
