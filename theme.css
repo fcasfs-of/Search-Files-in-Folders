@@ -66,6 +66,37 @@ section.lt {   text-align:left;  }
 .ic h2:before, section.ic h2:before{  display:none;  content:"";  }
 
 
+/* ==========================================================================
+   MEDIA QUERY PARA DISPOSITIVOS MÓVEIS (Telas até 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  header {
+    padding: 20px 15px; /* Reduz o espaço interno para telas pequenas */
+    border-radius: 8px; /* Bordas um pouco menores para harmonizar com o celular */
+  }
+
+  header h1 {    
+    font-size: 1.6rem; /* Diminui o título para não ocupar a tela inteira */
+    margin-bottom: 12px;
+  }
+
+  .languages {    
+    margin-top: 10px;
+    width: 100%; /* Faz o bloco de idiomas usar a largura total disponível */
+    gap: 8px; /* Aproxima levemente os botões no celular */
+  }
+
+  .languages button {
+    margin-bottom: 10px;
+    padding: 10px 16px; /* Aumenta consideravelmente a área de toque (dedo) */
+    font-size: 0.9rem; /* Mantém o texto legível sem exageros */
+    flex: 1; /* Faz os botões dividirem o espaço igualmente na horizontal */
+    min-width: 100px; /* Garante que eles não fiquem esmagados */
+  }
+}
+
+
+
   /* Botão de download */
   .download-btn {
     display: inline-block;
