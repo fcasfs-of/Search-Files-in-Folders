@@ -405,8 +405,14 @@ margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear;
 
 /* Ícone Customizado antes do texto (Opcional) */
 .tab-content section li::before {
-  content: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA3YmZmIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMzYgMzYiIHZlcnNpb249IjEuMSIgIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiAgICAgIDxwYXRoIGNsYXNzPSJjbHItaS1vdXRsaW5lIGNsci1pLW91dGxpbmUtcGF0aC0xIiBkPSJNMTMuNzIsMjcuNjksMy4yOSwxNy4yN2ExLDEsMCwwLDEsMS40MS0xLjQxbDksOUwzMS4yOSw3LjI5YTEsMSwwLDAsMSwxLjQxLDEuNDFaIj48L3BhdGg+ICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgZmlsbC1vcGFjaXR5PSIwIi8+PC9zdmc+'); /* Ícone de check de alta resolução */
-  color: #007bff;
+ content: "";
+  display: inline-block;
+  width: 18px;  /* Controla a largura do ícone */
+  height: 18px; /* Controla a altura do ícone */
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA3YmZmIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMzYgMzYiIHZlcnNpb249IjEuMSIgIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPiAgICAgIDxwYXRoIGNsYXNzPSJjbHItaS1vdXRsaW5lIGNsci1pLW91dGxpbmUtcGF0aC0xIiBkPSJNMTMuNzIsMjcuNjksMy4yOSwxNy4yN2ExLDEsMCwwLDEsMS40MS0xLjQxbDksOUwzMS4yOSw3LjI5YTEsMSwwLDAsMSwxLjQxLDEuNDFaIj48L3BhdGg+ICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgZmlsbC1vcGFjaXR5PSIwIi8+PC9zdmc+');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;  color: #007bff;
   font-weight: bold;
   margin-right: 12px;
   flex-shrink: 0; /* Garante que o ícone não esmague no mobile */
