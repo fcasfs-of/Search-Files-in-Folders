@@ -555,9 +555,9 @@ html, body, * {
             padding: 2rem; 
             border-radius: 12px; 
             box-shadow: 0 8px 24px rgba(0,0,0,0.05); 
-            width: 100%; 
-            max-width: 420px; 
-            text-align: center; 
+            width: 90%;          /* Ocupa 90% da largura em telas pequenas */
+            max-width: 420px;    /* Trava em no máximo 420px em telas grandes */
+            text-align: center;    margin: o auto;
             transition: all 0.3s ease;
         }
         
@@ -601,7 +601,7 @@ html, body, * {
 
         /* Media Query para Smartphones Pequenos (telas até 360px de largura) */
         @media (max-width: 360px) {
-            .card {
+            .card {    width: 95%;
                 padding: 1.2rem; /* Reduz o espaçamento interno para aproveitar espaço */
             }
             .resultado-container {
