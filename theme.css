@@ -549,6 +549,39 @@ html, body, * {
 
 
 
+    /* CAIXA DE AVISO (OCULTA POR PADRÃO) */
+    .aviso-vazio {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background-color: #fef3c7;
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      color: #92400e;
+      font-size: 0.95rem;
+      font-weight: 500;
+      animation: faderIn 0.3s ease-out; overflow: auto;
+    }
+
+    .aviso-vazio svg {
+      flex-shrink: 0;
+      color: #d97706;
+    }
+
+/* Ajuste para telas muito pequenas (Celulares) */
+@media (max-width: 480px) {
+  .aviso-vazio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
 
         .card { 
             background: #ffffff; 
