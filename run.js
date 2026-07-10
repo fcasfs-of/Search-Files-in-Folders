@@ -15,134 +15,162 @@ return dgetUrlParameterd;  }
 
 
 
-// Elementos
-  const appTcss = document.getElementById('csscustom');
-
-  const appTitle = document.getElementById('app-title');
-  const downloadText = document.getElementById('downloadText');
-  const versionText = document.getElementById('version');
-  const screenshotsTitle = document.getElementById('screenshots-title');
-  const resourcesTitle = document.getElementById('resources-title');
-  const aboutTitle = document.getElementById('about-title');
-  const aboutText = document.getElementById('about-text');
-  const resourceslistText = document.getElementById('resources-list');
-
-  const newslistText = document.getElementById('news-list');
-  const newslistTtitle = document.getElementById('news-title');
-
-  const langPtBtn = document.getElementById('lang-pt');
-  const langEsBtn = document.getElementById('lang-es');
-  const langEnBtn = document.getElementById('lang-en');
-
-
-var t_lanf=translations["pt"];
-
+// --- CONFIGURAÇÕES E ESTADO GLOBAL ---
 const body = document.body;
-body.oncontextmenu=function() { return false; };
+let currentTranslation = translations["pt"];
 
+// Desativa o clique direito do mouse
+body.oncontextmenu = () => false;
 
-  // Função para trocar idioma
-  function setLanguage(lang) {
-    t_lanf = translations[lang];
-    const t = translations[lang];
-     if (t){  
-   localStorage.setItem("lang", lang);
-appTcss.innerHTML = "<style> #lang-"+lang+" {  background: #fff;    color: #007BFF;   opacity:0.7;  pointer-events:none;  }  </style>";
-         
-    appTitle.textContent = t.appTitle;
-    downloadText.textContent = t.downloadText;
-    versionText.textContent = t.version;
-    screenshotsTitle.textContent = t.screenshotsTitle;
-    resourcesTitle.textContent = t.resourcesTitle;
-    aboutTitle.textContent = t.aboutTitle;
-    aboutText.textContent = t.aboutText;
-    resourceslistText.innerHTML = t.resourceslistText;
-    newslistText.innerHTML = t.NewslistText;
-    newslistTtitle.textContent = t.NewslistTitle;
-     }    else {  setLanguage("pt");   }
+// --- ELEMENTOS DO DOM ---
+const elements = {
+  appTcss: document.getElementById('csscustom'),
+  appTitle: document.getElementById('app-title'),
+  downloadText: document.getElementById('downloadText'),
+  versionText: document.getElementById('version'),
+  screenshotsTitle: document.getElementById('screenshots-title'),
+  resourcesTitle: document.getElementById('resources-title'),
+  aboutTitle: document.getElementById('about-title'),
+  aboutText: document.getElementById('about-text'),
+  resourceslistText: document.getElementById('resources-list'),
+  newslistText: document.getElementById('news-list'),
+  newslistTtitle: document.getElementById('news-title'),
+  langPtBtn: document.getElementById('lang-pt'),
+  langEsBtn: document.getElementById('lang-es'),
+  langEnBtn: document.getElementById('lang-en'),
+  modal: document.getElementById('modal'),
+  modalImg: document.getElementById('modal-img'),
+  modalTxt: document.getElementById('modal-txt'),
+  closeModal: document.getElementById('closeModal'),
+  galleryImages: document.querySelectorAll('#gallery img'),
+  tabs: document.querySelectorAll('.tab'),
+  contents: document.querySelectorAll('.tab-content')
+};
+
+// --- SISTEMA DE IDIOMAS (INTERNACIONAlIZAÇÃO) ---
+function setLanguage(lang) {
+  const t = translations[lang];
+  
+  if (!t) {
+    return setLanguage("pt");
   }
 
-  // Event listeners
-  langPtBtn.onclick = () => setLanguage('pt');
-  langEsBtn.onclick = () => setLanguage('es');
-  langEnBtn.onclick = () => setLanguage('en');
+  currentTranslation = t;
+  localStorage.setItem("lang", lang);
 
-
-  // Inicializa em português
-if(localStorage.getItem("lang")!=""){  setLanguage(localStorage.getItem("lang"));  }  else {  setLanguage('pt');   }  
-
-
-  // Modal
-  const modal = document.getElementById('modal');
-  const modalImg = document.getElementById('modal-img');
-  const modalTxt = document.getElementById('modal-txt');
-  const closeModal = document.getElementById('closeModal');
-
-  document.querySelectorAll('#gallery img').forEach(img => {
-    img.onclick = () => {
-      modal.style.display = 'block';
-      modalImg.src = img.dataset.full || img.src;
-      modalImg.alt = img.alt;
-      modalTxt.innerHTML="";
-      body.style.overflow="hidden";
-        if (t_lanf){
-          modalTxt.innerHTML="<br/>"+t_lanf["screenshotsTitle"]+": "+img.dataset.ig+"<br/><br/>";
-        }
-   };
-  });
-
-  closeModal.onclick = () => {
-    modal.style.display = 'none';
-      modalImg.src = "";
-      modalImg.alt = "";
-      modalTxt.innerHTML="";
-      body.style.overflow="auto";
-  };
-
-  window.onclick = (event) => {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-       modalImg.src = "";
-      modalImg.alt = "";
-       modalTxt.innerHTML="";
-        body.style.overflow="auto";
+  // Injeta o estilo para destacar o botão do idioma ativo
+  if (elements.appTcss) {
+    elements.appTcss.innerHTML = `
+      <style> 
+        #lang-${lang} { 
+          background: #fff; 
+          color: #007BFF; 
+          opacity: 0.7; 
+          pointer-events: none; 
+        } 
+      </style>`;
   }
-  };
 
+  // Atualiza os textos da interface de forma segura
+  if (elements.appTitle) elements.appTitle.textContent = t.appTitle;
+  if (elements.downloadText) elements.downloadText.textContent = t.downloadText;
+  if (elements.versionText) elements.versionText.textContent = t.version;
+  if (elements.screenshotsTitle) elements.screenshotsTitle.textContent = t.screenshotsTitle;
+  if (elements.resourcesTitle) elements.resourcesTitle.textContent = t.resourcesTitle;
+  if (elements.aboutTitle) elements.aboutTitle.textContent = t.aboutTitle;
+  if (elements.aboutText) elements.aboutText.textContent = t.aboutText;
+  if (elements.resourceslistText) elements.resourceslistText.innerHTML = t.resourceslistText;
+  if (elements.newslistText) elements.newslistText.innerHTML = t.NewslistText;
+  if (elements.newslistTtitle) elements.newslistTtitle.textContent = t.NewslistTitle;
+}
 
-if(localStorage.getItem('tema') === 'escuro') {   body.classList.add('dark');       } else {   body.classList.remove('dark');      }
+// Ouvintes de clique para troca de idioma
+if (elements.langPtBtn) elements.langPtBtn.addEventListener('click', () => setLanguage('pt'));
+if (elements.langEsBtn) elements.langEsBtn.addEventListener('click', () => setLanguage('es'));
+if (elements.langEnBtn) elements.langEnBtn.addEventListener('click', () => setLanguage('en'));
 
+// --- CONTROLE DO MODAL DA GALERIA ---
+function openModal(img) {
+  if (!elements.modal) return;
 
+  elements.modal.style.display = 'block';
+  body.style.overflow = "hidden";
 
+  if (elements.modalImg) {
+    elements.modalImg.src = img.dataset.full || img.src;
+    elements.modalImg.alt = img.alt;
+  }
 
-  // Seleciona todas as abas
-  const tabs = document.querySelectorAll('.tab');
-  // Seleciona todas as áreas de conteúdo
-  const contents = document.querySelectorAll('.tab-content');
+  if (elements.modalTxt && currentTranslation) {
+    const title = currentTranslation["screenshotsTitle"] || "";
+    const info = img.dataset.ig || "";
+    elements.modalTxt.innerHTML = `<br/>${title}: ${info}<br/><br/>`;
+  }
+}
 
-if (tabs){
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      // Remove a classe ativa de todas as abas
-      tabs.forEach(t => t.classList.remove('active'));
-      // Adiciona a classe ativa na aba clicada
-      tab.classList.add('active');
+function closeModal() {
+  if (!elements.modal) return;
 
-      const target = tab.getAttribute('data-tab');
+  elements.modal.style.display = 'none';
+  body.style.overflow = "auto";
 
-      // Oculta todas as abas de conteúdo
-     if(contents){
-     contents.forEach(content => {
+  if (elements.modalImg) {
+    elements.modalImg.src = "";
+    elements.modalImg.alt = "";
+  }
+  if (elements.modalTxt) {
+    elements.modalTxt.innerHTML = "";
+  }
+}
+
+// Configura os eventos do modal
+elements.galleryImages.forEach(img => {
+  img.addEventListener('click', () => openModal(img));
+});
+
+if (elements.closeModal) {
+  elements.closeModal.addEventListener('click', closeModal);
+}
+
+window.addEventListener('click', (event) => {
+  if (event.target === elements.modal) {
+    closeModal();
+  }
+});
+
+// --- SISTEMA DE ABAS (TABS) ---
+elements.tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.getAttribute('data-tab');
+
+    // Remove classe ativa de todas as abas
+    elements.tabs.forEach(t => t.classList.remove('active'));
+    // Ativa a aba atual
+    tab.classList.add('active');
+
+    // Mostra/Oculta os conteúdos correspondentes
+    elements.contents.forEach(content => {
+      if (content.id === target) {
+        content.classList.add('active');
+      } else {
         content.classList.remove('active');
-        if(content.id === target){
-          content.classList.add('active');
-        }
-      });
       }
     });
   });
-  
-  }
+});
 
+// --- INICIALIZAÇÃO DA APLICAÇÃO ---
+function init() {
+  // Inicializa o Tema (Claro/Escuro)
+  const savedTheme = localStorage.getItem('tema');
+  body.classList.toggle('dark', savedTheme === 'escuro');
+
+  // Inicializa o Idioma
+  const savedLang = localStorage.getItem("lang");
+  setLanguage(savedLang && savedLang !== "" ? savedLang : 'pt');
+}
+
+// Executa a inicialização
+init();
 
 
