@@ -54,6 +54,10 @@ a {    text-decoration: none;    color: inherit;  }
     transition: background 0.3s, color 0.3s;
   }
 
+.languages button svg {
+    margin:0 auto;  margin-bottom:5px;  display:block;
+}
+
   .languages button:hover {    background: white;    color: #007BFF;  }
 
   /* Seções */
