@@ -121,6 +121,26 @@ section.lt {   text-align:left;  }
     font-size: 1.1rem;
   }
 
+
+/* ==========================================================================
+   MEDIA QUERY PARA DISPOSITIVOS MÓVEIS (Telas até 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .download-btn {
+    display: block; /* Muda para block para poder ocupar a largura total */
+    width: 100%; /* O botão expande totalmente no celular (estilo app) */
+    padding: 14px 20px; /* Aumenta a altura para criar uma área de toque perfeita para o dedo */
+    font-size: 1rem; /* Diminui levemente a fonte para não distorcer em telas muito pequenas */
+  }
+
+  .version {
+    font-size: 0.95rem; /* Ajusta o tamanho do texto da versão para acompanhar o botão */
+    margin-top: 12px; /* Dá um pouco mais de respiro entre o botão e o texto */
+    text-align: center; /* Garante a centralização perfeita no mobile */
+  }
+}
+
+
   /* Galeria */
  .tab-content.active .gallery, .gallery {      user-select:none;
    display: grid;
@@ -245,6 +265,20 @@ content:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34A
 margin-right:9px;  top: 3px;  position: relative;transition: all .1s linear; 
 }
 
+
+
+/* ==========================================================================
+   MEDIA QUERY PARA DISPOSITIVOS MÓVEIS (Telas até 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  #resources-title::before,
+  #screenshots-title::before,
+  #news-title::before,
+  #about-title::before {   
+    margin-right: 6px; /* Reduz levemente o espaço no celular para economizar tela */
+    top: 0.1rem; /* Ajusta o alinhamento já que a fonte do título diminui no mobile */
+  }
+}
 
 
 
