@@ -561,7 +561,8 @@ html, body, * {
       color: #92400e;
       font-size: 0.95rem;
       font-weight: 500;
-      animation: faderIn 0.3s ease-out; overflow: auto;
+      animation: faderIn 0.1s linear; 
+      overflow: auto;
     }
 
     .aviso-vazio svg {
