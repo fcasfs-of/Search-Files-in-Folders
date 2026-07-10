@@ -103,10 +103,13 @@ const elements = {
         const texto = traducoes[lang];
 
         if (!urlArquivo || urlArquivo.trim() === "") {
-            elemento.innerHTML = `<span class="status-erro">${icones.erro} ${texto.urlVazia}</span>`;
+            elemento.setAttribute('data-link', "");
+			elemento.innerHTML = `<span class="status-erro">${icones.erro} ${texto.urlVazia}</span>`;
             return;
         }
 
+		elemento.setAttribute('data-link', urlArquivo);
+		
         fetch(urlArquivo, { method: 'HEAD' })
             .then(function(resposta) {
                 if (resposta.ok) {
