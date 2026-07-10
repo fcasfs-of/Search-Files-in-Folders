@@ -75,35 +75,7 @@ init();
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. Cria o botão dinamicamente
-    const backToTopBtn = document.createElement('button');
-    
-    // 2. Adiciona a classe CSS estrutural
-    backToTopBtn.className = 'back-to-top';
-    
-    // 3. Insere o ícone SVG nativo
-    backToTopBtn.innerHTML = `        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">            <polyline points="18 15 12 9 6 15"></polyline>        </svg>    `;
-    
-    // 4. Insere o botão no corpo da página
-    document.body.appendChild(backToTopBtn);
-
-    // 5. Função para controlar a exibição ao rolar a página
-    window.onscroll = function() {
-        // Verifica a rolagem tanto no body quanto na tag html
-        const scrollDoTopo = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
-        
-        if (scrollDoTopo > 300) {
-            backToTopBtn.style.display = 'flex';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-    };
-
-    // 6. Função para voltar ao topo com rolagem suave
-    backToTopBtn.onclick = function() {
-        window.scrollTo({            top: 0,            behavior: 'smooth'        });
-    };
+  
 });
 
 
