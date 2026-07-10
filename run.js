@@ -303,11 +303,11 @@ tabButtons.forEach(buttontbf => {
 });
 	  }
 
-	  if(searchpgtbg_img && searchpgtbg_img!="" && searchpgtbg=="screenshots"){
+	  if(searchpgtbg_img && searchpgtbg_img!="" && searchpgtbg==="screenshots"){
 const tabimgdButtons = document.querySelectorAll('.gallery img');
 tabimgdButtons.forEach(imgdiel => {
-  const titletbg = imgdiel.getAttribute('data-ig');
-  if (titletbg.trim() === searchpgtbg_img) {     imgdiel.click();    }   }
+  const titldetbg = imgdiel.getAttribute('data-ig');
+  if (titldetbg.trim() === searchpgtbg_img) {     imgdiel.click();    }   }
 });
 		  
 	  }
