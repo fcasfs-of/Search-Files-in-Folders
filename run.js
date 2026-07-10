@@ -292,6 +292,8 @@ init();
 
 document.addEventListener("DOMContentLoaded", function(){
 	const searchpgtbg = getUrlParameter("tab");
+	const searchpgtbg_img = getUrlParameter("pic");
+
 	  if(searchpgtbg && searchpgtbg!=""){
 const tabButtons = document.querySelectorAll('.tabs button');
 tabButtons.forEach(buttontbf => {
@@ -300,6 +302,16 @@ tabButtons.forEach(buttontbf => {
   if (dtitletbg.trim() === searchpgtbg+"-title") {     buttontbf.click();    }   }
 });
 	  }
+
+	  if(searchpgtbg_img && searchpgtbg_img!="" && searchpgtbg=="screenshots"){
+const tabimgdButtons = document.querySelectorAll('.gallery img');
+tabimgdButtons.forEach(imgdiel => {
+  const titletbg = imgdiel.getAttribute('data-ig');
+  if (titletbg.trim() === searchpgtbg_img) {     imgdiel.click();    }   }
+});
+		  
+	  }
+	
 });
 
 
